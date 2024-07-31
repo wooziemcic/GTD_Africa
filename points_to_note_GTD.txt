@@ -1,0 +1,24 @@
+-> Send to unknown (4,5,8)
+
+-> Look for leakage in the dataset (correlation check, multi-colinearity, ...)
+
+-> 
+
+Train-Test Contamination:
+
+Example: Inadvertently including information from the test set in the training data. For instance, using statistical transformations (like scaling or normalization) on the entire dataset before splitting it into training and testing sets. This contaminates the training data with information that the model should not have access to during training.
+Time Leakage:
+
+Example: Predictive modeling for stock prices where future information, which the model wouldn't have had access to at the time of prediction, is included in the training dataset. Using future prices or events to predict the past can lead to inaccurate model evaluation and unrealistic expectations of the model's performance.
+Target Leakage:
+
+Example: Including features that are calculated using the target variable. For instance, predicting customer churn and including information that is related to future events that occur after the customer has churned. This can lead to artificially high performance during training but poor performance in real-world scenarios.
+Metadata Leakage:
+
+Example: When non-predictive data (like unique identifiers or timestamps) is accidentally used as a predictor in the model, this can result in the model learning patterns from the metadata that it shouldn’t have access to during inference.
+Cross-Validation Leakage:
+
+Example: Applying feature scaling or other preprocessing techniques on the entire dataset before performing cross-validation. This can result in information from the validation set leaking into the training process, leading to an overestimated model performance.
+Proxy Leakage:
+
+Example: Using a variable that indirectly contains the target information. For instance, using the number of hospital visits as a predictor for a disease instead of the symptoms directly related to the disease. This may lead to the model learning the proxy (number of visits) rather than the actual predictors (symptoms).
